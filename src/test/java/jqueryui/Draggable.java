@@ -18,6 +18,14 @@ public class Draggable {
 		driver.get("https://jqueryui.com/draggable/");
 		driver.manage().window().maximize();
 		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+//		info website
+		String url = js.executeScript("return document.URL;").toString();
+		String titleUrl = js.executeScript("return document.title;").toString();
+		System.out.println("this URL = " + url);
+		System.out.println("this Title URL = " + titleUrl);
+		
 		
 //		default functionality
 		Actions action = new Actions(driver);
@@ -30,7 +38,7 @@ public class Draggable {
 //		auto scroll
 		driver.switchTo().defaultContent();
 		driver.findElement(By.xpath("//a[contains(text(),'Auto-scroll')]")).click();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		
 		driver.switchTo().frame(0);
 		WebElement drag1 = driver.findElement(By.id("draggable"));
@@ -41,7 +49,6 @@ public class Draggable {
 		action.clickAndHold(drag2).moveByOffset(0, 100).build().perform();
 		action.clickAndHold(drag3).moveByOffset(0, 110).build().perform();
 		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,120)", "");
 	}
 
