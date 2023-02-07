@@ -50,7 +50,20 @@ public class Draggable {
 		action.clickAndHold(drag3).moveByOffset(0, 110).build().perform();
 		
 		js.executeScript("window.scrollBy(0,120)", "");
-		System.out.println("okeokeok");
+				
+//		Constrain movement
+		driver.switchTo().defaultContent();
+		driver.findElement(By.xpath("//a[contains(text(),'Constrain movement')]")).click();
+		Thread.sleep(8000);
+		
+		driver.switchTo().frame(0);
+		WebElement dragV = driver.findElement(By.id("draggable"));
+		WebElement dragH = driver.findElement(By.id("draggable2"));
+		
+		action.clickAndHold(dragV).moveByOffset(0, 20).build().perform();
+		action.clickAndHold(dragH).moveByOffset(50, 0).build().perform();
+		
+		
 	}
 
 }
