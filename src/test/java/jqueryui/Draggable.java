@@ -50,6 +50,7 @@ public class Draggable {
 		action.clickAndHold(drag3).moveByOffset(0, 110).build().perform();
 		
 		js.executeScript("window.scrollBy(0,120)", "");
+		System.out.println("okeokeok");
 	}
 
 }
