@@ -33,7 +33,7 @@ public class Draggable {
 		
 		WebElement drag = driver.findElement(By.id("draggable"));
 		action.clickAndHold(drag).moveByOffset(50, 50).build().perform();
-		
+
 		
 //		auto scroll
 		driver.switchTo().defaultContent();
